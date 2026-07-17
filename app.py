@@ -137,10 +137,6 @@ with col1:
         media_toggle_controls=False,
     )
 
-    # Synchronize streamer UI state with st.session_state.running
-    if ctx.state.playing != st.session_state.running:
-        st.session_state.running = ctx.state.playing
-        st.rerun()
 
 if ctx.state.playing:
     # Polling loop to update custom HTML components in the main thread

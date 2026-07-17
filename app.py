@@ -62,7 +62,20 @@ state_container = {
 }
 
 RTC_CONFIGURATION = RTCConfiguration(
-    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+    {
+        "iceServers": [
+            {"urls": ["stun:stun.l.google.com:19302"]},
+            {
+                "urls": [
+                    "turn:openrelay.metered.ca:80",
+                    "turn:openrelay.metered.ca:443",
+                    "turns:openrelay.metered.ca:443?transport=tcp"
+                ],
+                "username": "openrelayproject",
+                "credential": "openrelayproject"
+            }
+        ]
+    }
 )
 
 def video_frame_callback(frame):
